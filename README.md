@@ -1,8 +1,49 @@
-# React + Vite
+# finanzauto-users-list
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1 Clonar el repositorio
 
-Currently, two official plugins are available:
+# como usar
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2 Installar las dependencia
+
+3 cambiar .env.templete por .env.local y agregar la apikey
+
+4 correr el proyecto npm run dec
+
+```
+└── finanzauto-users-list
+    └── public
+        └── favicon.ico
+        └── vite.svg
+    └── src
+        └── api
+            └── api.js
+        └── App.css
+        └── App.jsx
+        └── assets
+            └── user-placeholder.png
+        └── componentes
+            └── modals
+                └── ModalConfirmation.jsx
+                └── ModalError.jsx
+                └── ModalLoading.jsx
+                └── ModalNewUSer.jsx
+                └── ModalUserDetails.jsx
+            └── Pagination.jsx
+            └── UserList.jsx
+        └── index.css
+        └── main.jsx
+        └── utilis
+            └── index.js
+    └── .env.local
+    └── .env.templete
+    └── .gitignore
+    └── eslint.config.js
+    └── index.html
+    └── package-lock.json
+    └── package.json
+    └── postcss.config.js
+    └── README.md
+    └── tailwind.config.js
+    └── vite.config.js
+```
