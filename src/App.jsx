@@ -29,9 +29,11 @@ function App() {
 
   // user
   const [id, setId] = useState('');
+
   const handleChangeIG = (e) => {
     setId(e.target.value);
   }
+
 
 
   const fetchUsers = async (newPage) => {
@@ -76,7 +78,28 @@ function App() {
     }
   }
 
-
+  const getUserById = async (id) => {
+    if (!id) return
+    setLoading(true)
+    try {
+      const res = await getApi(`user/${id}`)
+      if (res.error) {
+        setIsModalOpenError(true)
+        setError(`Error al obtener el usuario `)
+        return
+      }
+      setUsers([res])
+    } catch (error) {
+      //TODO  enviar error a log
+      console.log(error);
+      setIsModalOpenError(true)
+      setError(`Error al obtener el usuario`)
+    }
+    finally {
+      setLoading(false)
+      setId('')
+    }
+  }
   useEffect(() => {
     fetchUsers(page);
   }, []);
@@ -94,7 +117,6 @@ function App() {
     );
   }
 
-
   return (
 
     <div className="bg-white w-full ">
@@ -108,24 +130,24 @@ function App() {
         </div>
 
         {/*  Search  */}
-        <div className="flex-wrap gap-2 flex items-center justify-between p-3 bg-white border rounded-b mb-4">
-          <div>
+        <div className="  flex-wrap gap-2 flex items-center justify-between p-3 bg-white border rounded-b mb-4">
+          <div className="flex flex-col md:flex-row items-center space-x-2   w-96">
             <input
               name="id"
               onChange={handleChangeIG}
               value={id}
               type="text"
               placeholder="Id a buscar"
-              className="border rounded px-2 py-1 w-full sm:w-2/3 focus:outline-none"
+              className="border rounded px-2 py-1 w-full  focus:outline-none"
             />
-            <button className="bg-teal-700 text-white px-4 py-1 rounded hover:bg-teal-600 sm:w-auto w-full" onClick={() => getUserById(id)}>
+            <button className="bg-green-200  text-teal-700 px-4 py-1 rounded hover:bg-teal-600 sm:w-auto w-full" onClick={() => getUserById(id)}>
               Buscar
             </button>
           </div>
+          <button className="bg-teal-700 text-white px-4 py-1 rounded hover:bg-teal-600 sm:w-auto w-full" onClick={() => setIsModalOpen(true)}>
+            Crear usuario
+          </button>
         </div>
-        <button className="bg-teal-700 text-white px-4 py-1 rounded hover:bg-teal-600 sm:w-auto w-full" onClick={() => setIsModalOpen(true)}>
-          Crear usuario
-        </button>
 
         {/*  Users List */}
         <div className=" ">
