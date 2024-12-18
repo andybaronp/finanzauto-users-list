@@ -8,7 +8,7 @@
 
 3 cambiar .env.templete por .env.local y agregar la apikey
 
-4 correr el proyecto npm run dec
+4 correr el proyecto npm run dev
 
 ```
 └── finanzauto-users-list
