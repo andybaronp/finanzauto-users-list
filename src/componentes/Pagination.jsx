@@ -10,6 +10,7 @@ const Pagination = ({ pagination, handlePageChange }) => {
       </button>
       {[...Array(Math.ceil(pagination.total / pagination.limit)).keys()].map((pageNum) => (
         <button
+          disabled={pagination.page === pageNum}
           key={pageNum}
           onClick={() => handlePageChange(pageNum)}
           className={`text-teal-700 ${pagination.page === pageNum ? 'font-bold underline' : 'hover:underline'}`}

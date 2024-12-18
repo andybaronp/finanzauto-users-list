@@ -3,10 +3,11 @@ const baseUrl = "https://dummyapi.io/data/v1/";
 
 //Enviroment
 const headers = {
-  "app-id": import.meta.env.VITE_APY_KEY
+  "app-id": import.meta.env.VITE_APY_KEY,
+  "Content-Type": "application/json"
 }
 
-const get = async (url) => {
+const getApi = async (url) => {
   const response = await fetch(baseUrl + url,
     {
       headers
@@ -15,7 +16,7 @@ const get = async (url) => {
   return response.json();
 }
 
-const post = async (url, data) => {
+const postApi = async (url, data) => {
   const response = await fetch(baseUrl + url,
     {
       method: "POST",
@@ -25,7 +26,7 @@ const post = async (url, data) => {
   );
   return response.json();
 }
-const put = async (url, data) => {
+const putApi = async (url, data) => {
   const response = await fetch(baseUrl + url,
     {
       method: "PUT",
@@ -35,7 +36,7 @@ const put = async (url, data) => {
   );
   return response.json();
 }
-const del = async (url) => {
+const deleleteApi = async (url) => {
   const response = await fetch(baseUrl + url,
     {
       method: "DELETE",
@@ -45,4 +46,4 @@ const del = async (url) => {
   return response.json();
 }
 
-export { get, post, put, del }
+export { getApi, postApi, putApi, deleleteApi }

@@ -1,38 +1,20 @@
 
-
+export const prexixesList = ["mr", "ms", "mrs", "miss", "dr", ""]
+export const generList = ["male", "female", "other"]
 export const handleChangePrefix = (titlePrefix) => {
   if (!titlePrefix) return
   const defailtPrefix = ""
   const prefixe = titlePrefix.toLowerCase()
+  // title: string("mr", "ms", "mrs", "miss", "dr", "")
   const prefixesObj = {
     "mr": "Sr.",
     "ms": "Srta.",
+    "mrs": "Sra.",
+    "miss": "Sra.",
+    "dr": "Dr.",
   }
 
 
   return prefixesObj[prefixe] || defailtPrefix
 }
 
-
-export function formatDate(fecha) {
-  const meses = [
-    'enero',
-    'febrero',
-    'marzo',
-    'abril',
-    'mayo',
-    'junio',
-    'julio',
-    'agosto',
-    'septiembre',
-    'octubre',
-    'noviembre',
-    'diciembre',
-  ];
-  const fechaObj = new Date(fecha);
-  const dia = fechaObj.getUTCDate();
-  const year = fechaObj.getUTCFullYear();
-  const mesTexto = meses[fechaObj.getUTCMonth()];
-
-  return `${dia} de ${mesTexto} del ${year}`;
-}
